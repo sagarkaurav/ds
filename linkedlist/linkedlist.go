@@ -21,6 +21,7 @@ func New[T comparable]() *LinkedList[T] {
 func (ll *LinkedList[T]) AddAtHead(val T) {
 	newNode := node[T]{Val: val, NextNode: ll.head}
 	ll.head = &newNode
+	ll.size += 1
 }
 func (ll *LinkedList[T]) Add(val T) {
 	newNode := node[T]{Val: val, NextNode: nil}
@@ -45,26 +46,30 @@ func (ll *LinkedList[T]) ValueAtIndex(index int) T {
 	return val
 }
 
-func (ll *LinkedList[T]) RemoveAtIndex(index int) {
+func (ll *LinkedList[T]) RemoveAtIndex(index int) T {
+	var removedval T
 	if ll.size <= index {
-		return
+		return removedval
 	}
 	prevNode := ll.head
 	currentNode := ll.head
 	for i := 0; i <= index; i++ {
 		if i == index {
 			if prevNode == currentNode {
+				removedval = currentNode.Val
 				ll.head = currentNode.NextNode
 			} else {
+				removedval = currentNode.Val
 				prevNode.NextNode = currentNode.NextNode
 				currentNode.NextNode = nil
 			}
 			ll.size -= 1
+			break
 		}
 		prevNode = currentNode
 		currentNode = currentNode.NextNode
 	}
-
+	return removedval
 }
 
 func (ll *LinkedList[T]) Remove(val T) {
