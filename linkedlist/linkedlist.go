@@ -29,6 +29,17 @@ func (ll *LinkedList[T]) Add(val T) {
 	}
 	ll.size += 1
 }
+func (ll *LinkedList[T]) ValueAtIndex(index int) T {
+	currentNode := ll.head
+	var val T
+	for i := 0; currentNode != nil; i++ {
+		if i == index {
+			val = currentNode.Val
+		}
+		currentNode = currentNode.NextNode
+	}
+	return val
+}
 
 func (ll *LinkedList[T]) RemoveAtIndex(index int) {
 	if ll.size <= index {
