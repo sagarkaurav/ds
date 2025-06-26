@@ -18,6 +18,10 @@ func New[T comparable]() *LinkedList[T] {
 	return &LinkedList[T]{head: nil, tail: nil}
 }
 
+func (ll *LinkedList[T]) AddAtHead(val T) {
+	newNode := node[T]{Val: val, NextNode: ll.head}
+	ll.head = &newNode
+}
 func (ll *LinkedList[T]) Add(val T) {
 	newNode := node[T]{Val: val, NextNode: nil}
 	if ll.size == 0 {
