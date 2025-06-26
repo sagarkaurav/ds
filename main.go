@@ -3,17 +3,23 @@ package main
 import (
 	"fmt"
 
-	"github.com/sagarkaurav/ds/stack"
+	"github.com/sagarkaurav/ds/queue"
 )
 
 func main() {
 	fmt.Println("data structures in Golang")
-	stack := stack.New[int]()
-	stack.Push(1)
-	stack.Push(2)
-	stack.Push(3)
-	stack.Pop()
-	stack.Print()
+	queue := queue.New[int]()
+	queue.Enqueue(1)
+	queue.Enqueue(2)
+	queue.Enqueue(3)
+	queue.Dequeue()
+	queue.Print()
+	// stack := stack.New[int]()
+	// stack.Push(1)
+	// stack.Push(2)
+	// stack.Push(3)
+	// stack.Pop()
+	// stack.Print()
 	// ll := linkedlist.New[int]()
 	// ll.Add(1)
 	// ll.Add(2)
