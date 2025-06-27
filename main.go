@@ -3,17 +3,29 @@ package main
 import (
 	"fmt"
 
-	"github.com/sagarkaurav/ds/queue"
+	"github.com/sagarkaurav/ds/minheap"
 )
 
 func main() {
 	fmt.Println("data structures in Golang")
-	queue := queue.New[int]()
-	queue.Enqueue(1)
-	queue.Enqueue(2)
-	queue.Enqueue(3)
-	queue.Dequeue()
-	queue.Print()
+	mh := minheap.New[int]()
+	mh.Insert(7)
+	mh.Insert(3)
+	mh.Insert(1)
+	mh.Insert(11)
+	mh.Insert(0)
+	mh.Poll()
+	mh.Poll()
+	mh.Poll()
+	mh.Poll()
+	mh.Poll()
+	mh.Print()
+	// queue := queue.New[int]()
+	// queue.Enqueue(1)
+	// queue.Enqueue(2)
+	// queue.Enqueue(3)
+	// queue.Dequeue()
+	// queue.Print()
 	// stack := stack.New[int]()
 	// stack.Push(1)
 	// stack.Push(2)
