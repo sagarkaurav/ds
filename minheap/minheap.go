@@ -15,7 +15,8 @@ func New[T constraints.Ordered]() *MinHeap[T] {
 }
 
 func BuildWithSlice[T constraints.Ordered](data []T) *MinHeap[T] {
-	newHeap := &MinHeap[T]{data: data}
+	newHeap := &MinHeap[T]{}
+	copy(newHeap.data, data)
 	for mid := len(newHeap.data) / 2; mid >= 0; mid -= 1 {
 		newHeap.sink(mid)
 	}
