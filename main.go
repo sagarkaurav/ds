@@ -8,18 +8,11 @@ import (
 
 func main() {
 	fmt.Println("data structures in Golang")
-	mh := minheap.New[int]()
-	mh.Insert(7)
-	mh.Insert(3)
-	mh.Insert(1)
-	mh.Insert(11)
-	mh.Insert(0)
-	mh.Poll()
-	mh.Poll()
-	mh.Poll()
-	mh.Poll()
-	mh.Poll()
-	mh.Print()
+	mh := minheap.BuildWithSlice([]int{7, 3, 1, 11, 0})
+	// mh.Print()
+	for !mh.IsEmpty() {
+		fmt.Println(mh.Poll())
+	}
 	// queue := queue.New[int]()
 	// queue.Enqueue(1)
 	// queue.Enqueue(2)

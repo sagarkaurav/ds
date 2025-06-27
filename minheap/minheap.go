@@ -14,6 +14,14 @@ func New[T constraints.Ordered]() *MinHeap[T] {
 	return &MinHeap[T]{data: []T{}}
 }
 
+func BuildWithSlice[T constraints.Ordered](data []T) *MinHeap[T] {
+	newHeap := &MinHeap[T]{data: data}
+	for mid := len(newHeap.data) / 2; mid >= 0; mid -= 1 {
+		newHeap.sink(mid)
+	}
+	return newHeap
+}
+
 func (mh *MinHeap[T]) Insert(val T) {
 	mh.data = append(mh.data, val)
 	mh.swim(len(mh.data) - 1)
@@ -25,6 +33,10 @@ func (mh *MinHeap[T]) Poll() T {
 	mh.data = mh.data[:len(mh.data)-1]
 	mh.sink(0)
 	return val
+}
+
+func (mh *MinHeap[T]) IsEmpty() bool {
+	return len(mh.data) == 0
 }
 
 func (mh *MinHeap[T]) swim(currentIndex int) {
