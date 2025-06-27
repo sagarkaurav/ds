@@ -1,6 +1,9 @@
 package dyanmicarray
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type DyanmicArray[T comparable] struct {
 	capacity int
@@ -24,7 +27,7 @@ func (da *DyanmicArray[T]) Append(val T) {
 	da.size += 1
 }
 
-func (da *DyanmicArray[T]) RemoveByVal(val T) {
+func (da *DyanmicArray[T]) RemoveByVal(val T) (v T, err error) {
 	matchedIndex := -1
 	for i, v := range da.arr {
 		if v == val {
@@ -32,14 +35,20 @@ func (da *DyanmicArray[T]) RemoveByVal(val T) {
 			break
 		}
 	}
+	if matchedIndex == -1 {
+		return *new(T), errors.New("value not found")
+	}
 	for matchedIndex < da.size-1 {
 		da.arr[matchedIndex] = da.arr[matchedIndex+1]
 		matchedIndex += 1
 	}
-	da.size -= 1
+	return val, nil
 }
 
 func (da *DyanmicArray[T]) RemoveByIndex(index int) {
+	if da.size <= index {
+		return
+	}
 	for index < da.size-1 {
 		da.arr[index] = da.arr[index+1]
 		index += 1
