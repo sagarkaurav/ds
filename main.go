@@ -14,6 +14,7 @@ func main() {
 	bst.Insert(3)
 	bst.Insert(0)
 	bst.Delete(1)
+	fmt.Println(bst.Contains(2))
 	bst.LevelOrderPrint()
 	// mh := minheap.BuildWithSlice([]int{7, 3, 1, 11, 0})
 	// // mh.Print()

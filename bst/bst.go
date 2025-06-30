@@ -76,6 +76,26 @@ func delete[T constraints.Ordered](n *node[T], val T) *node[T] {
 	return n
 }
 
+func (bst *BST[T]) Contains(val T) bool {
+	return contains(bst.root, val)
+}
+
+func contains[T constraints.Ordered](n *node[T], val T) bool {
+	if n == nil {
+		return false
+	}
+	if n.val == val {
+		return true
+	}
+	if n.val > val {
+		return contains(n.left, val)
+	}
+	if n.val < val {
+		return contains(n.right, val)
+	}
+	return false
+}
+
 func (bst *BST[T]) LevelOrderPrint() {
 	queue := queue.New[*node[T]]()
 	queue.Enqueue(bst.root)
