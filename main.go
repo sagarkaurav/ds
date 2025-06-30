@@ -3,26 +3,33 @@ package main
 import (
 	"fmt"
 
-	"github.com/sagarkaurav/ds/minheap"
+	"github.com/sagarkaurav/ds/bst"
 )
 
 func main() {
 	fmt.Println("data structures in Golang")
-	mh := minheap.BuildWithSlice([]int{7, 3, 1, 11, 0})
-	// mh.Print()
-	for !mh.IsEmpty() {
-		fmt.Println(mh.Poll())
-	}
+	bst := bst.New[int]()
+	bst.Insert(1)
+	bst.Insert(2)
+	bst.Insert(3)
+	bst.Insert(0)
+	bst.Delete(1)
+	bst.LevelOrderPrint()
+	// mh := minheap.BuildWithSlice([]int{7, 3, 1, 11, 0})
+	// // mh.Print()
+	// for !mh.IsEmpty() {
+	// 	fmt.Println(mh.Poll())
+	// }
 	// queue := queue.New[int]()
 	// queue.Enqueue(1)
 	// queue.Enqueue(2)
 	// queue.Enqueue(3)
 	// queue.Dequeue()
 	// queue.Print()
-	// stack := stack.New[int]()
-	// stack.Push(1)
-	// stack.Push(2)
-	// stack.Push(3)
+	// stack := stack.New[string]()
+	// stack.Push("A")
+	// stack.Push("B")
+	// stack.Push("C")
 	// stack.Pop()
 	// stack.Print()
 	// ll := linkedlist.New[int]()
