@@ -1,4 +1,4 @@
-module github.com/sagarkaurav/ds
+module github.com/sagarkaurav/ds-golang
 
 go 1.24.0
 

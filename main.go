@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/sagarkaurav/ds/bst"
+	"github.com/sagarkaurav/ds-golang/bst"
 )
 
 func main() {

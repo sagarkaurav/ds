@@ -1,7 +1,7 @@
 package stack
 
 import (
-	"github.com/sagarkaurav/ds/linkedlist"
+	"github.com/sagarkaurav/ds-golang/linkedlist"
 )
 
 type Stack[T comparable] struct {

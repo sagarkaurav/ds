@@ -1,6 +1,6 @@
 package queue
 
-import "github.com/sagarkaurav/ds/linkedlist"
+import "github.com/sagarkaurav/ds-golang/linkedlist"
 
 type Queue[T comparable] struct {
 	size int

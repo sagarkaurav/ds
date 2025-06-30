@@ -3,7 +3,7 @@ package bst
 import (
 	"fmt"
 
-	"github.com/sagarkaurav/ds/queue"
+	"github.com/sagarkaurav/ds-golang/queue"
 	"golang.org/x/exp/constraints"
 )
 
